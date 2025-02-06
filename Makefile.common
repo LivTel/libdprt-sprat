@@ -1,0 +1,10 @@
+# $Header: /home/cjm/cvs/libdprt-sprat/Makefile.common,v 1.1 2025-02-06 15:48:07 cjm Exp $
+
+SPRAT_HOME		= sprat
+LIBDPRT_SPRAT_SRC_HOME	= $(LIBDPRT_SRC_HOME)/$(SPRAT_HOME)
+LIBDPRT_SPRAT_BIN_HOME	= $(LIBDPRT_BIN_HOME)/$(SPRAT_HOME)
+LIBDPRT_SPRAT_DOC_HOME	= $(LIBDPRT_DOC_HOME)/$(SPRAT_HOME)
+
+#
+# $Log: not supported by cvs2svn $
+#
