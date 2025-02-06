@@ -1,24 +1,26 @@
-# $Header: /home/cjm/cvs/libdprt-sprat/c/Makefile,v 1.1 2014-09-03 14:07:41 cjm Exp $
+# $Header: /home/cjm/cvs/libdprt-sprat/c/Makefile,v 1.2 2025-02-06 16:36:24 cjm Exp $
 
 include	../../../Makefile.common
 include	../../Makefile.common
 include	../Makefile.common
 
-LIBNAME		= $(LIBDPRT_HOME)_$(SPRAT_HOME)
-INCDIR 		= $(LIBDPRT_SPRAT_SRC_HOME)/include
-CCDIMAGERINCDIR	= $(LIBDPRT_SRC_HOME)/ccd_imager
-OBJECTINCDIR	= $(LIBDPRT_SRC_HOME)/object/include
-DOCSDIR 	= $(LIBDPRT_SPRAT_DOC_HOME)/cdocs
-BINDIR		= $(LIBDPRT_SPRAT_BIN_HOME)/c/$(HOSTTYPE)
-CFLAGS 		= -g $(CCHECKFLAG) -I$(INCDIR) -I$(CFITSIOINCDIR) -I$(JNIINCDIR) -I$(JNIMDINCDIR) \
-		-I$(JNIGENERALINCDIR) -I$(CCDIMAGERINCDIR) -I$(OBJECTINCDIR) -L$(LT_LIB_HOME)
-LINTFLAGS 	= -I$(INCDIR) -I$(JNIINCDIR) -I$(JNIMDINCDIR)
-DOCFLAGS 	= -static
-SRCS 		= dprt.c ngat_dprt_sprat_DpRtLibrary.c
-HEADERS		= $(SRCS:%.c=%.h)
-OBJS		= $(SRCS:%.c=$(BINDIR)/%.o)
-DOCS 		= $(SRCS:%.c=$(DOCSDIR)/%.html)
-LIBS		= -lcfitsio -ldprt_object -ldprt_libfits -llt_filenames -ldprt_jni_general -lsprat_ccd_dprt 
+LIBNAME			= $(LIBDPRT_HOME)_$(SPRAT_HOME)
+INCDIR 			= $(LIBDPRT_SPRAT_SRC_HOME)/include
+CCDIMAGERINCDIR		= $(LIBDPRT_SRC_HOME)/ccd_dprt
+LTFILENAMESINCDIR 	= $(LT_SRC_HOME)/lt_filenames
+OBJECTINCDIR		= $(LIBDPRT_SRC_HOME)/object/include
+DOCSDIR 		= $(LIBDPRT_SPRAT_DOC_HOME)/cdocs
+BINDIR			= $(LIBDPRT_SPRAT_BIN_HOME)/c/$(HOSTTYPE)
+CFLAGS 			= -g $(CCHECKFLAG) -I$(INCDIR) -I$(CFITSIOINCDIR) -I$(JNIINCDIR) -I$(JNIMDINCDIR) \
+			-I$(JNIGENERALINCDIR) -I$(CCDIMAGERINCDIR) -I$(LTFILENAMESINCDIR) -I$(OBJECTINCDIR) \
+			-L$(LT_LIB_HOME)
+LINTFLAGS 		= -I$(INCDIR) -I$(JNIINCDIR) -I$(JNIMDINCDIR)
+DOCFLAGS 		= -static
+SRCS 			= dprt.c ngat_dprt_sprat_DpRtLibrary.c
+HEADERS			= $(SRCS:%.c=%.h)
+OBJS			= $(SRCS:%.c=$(BINDIR)/%.o)
+DOCS 			= $(SRCS:%.c=$(DOCSDIR)/%.html)
+LIBS			= -lcfitsio -ldprt_object -ldprt_libfits -llt_filenames -ldprt_jni_general -lsprat_ccd_dprt 
 
 top: shared docs
 
@@ -76,4 +78,7 @@ backup: tidy
 
 #
 # $Log: not supported by cvs2svn $
+# Revision 1.1  2014/09/03 14:07:41  cjm
+# Initial revision
+#
 #
